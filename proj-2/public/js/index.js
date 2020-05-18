@@ -3,6 +3,7 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -82,3 +83,89 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//
+//
+//
+//
+//
+//
+//Drinks api vars
+var $drinkName = $("#drinkName");
+var $drinkIngred = $("#drinkIngred");
+var $drinkPrep = $("#drinkPrep");
+var $drinkList = $("#dink-list");
+
+var drinksAPI = {
+  saveNewDrink: function(drinks) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/examples",
+      data: JSON.stringify(drinks)
+    });
+  },
+  getDrinks: function() {
+    return $.ajax({
+      url: "api/examples",
+      type: "GET"
+    });
+  }
+};
+
+// refreshExamples gets new examples from the db and repopulates the list
+var refreshDrinks = function() {
+  drinksAPI.getDrinks().then(function(data) {
+    var $drinks = data.map(function(drinks) {
+      var $a = $("<a>")
+        .text(drinks.text)
+        .attr("href", "/drinks/" + drinks.id);
+
+      var $li = $("<li>")
+        .attr({
+          class: "list-group-item",
+          "data-id": drinks.id
+        })
+        .append($a);
+
+      var $button = $("<button>")
+        .addClass("btn btn-danger float-right edit")
+        .text("Edit");
+
+      $li.append($button);
+
+      return $li;
+    });
+
+    $drinkList.empty();
+    $drinkList.append($drinks);
+  });
+};
+
+// handleFormSubmit is called whenever we submit a new example
+// Save the new example to the db and refresh the list
+var handleDrinkFormSubmit = function(event) {
+  event.preventDefault();
+  var drink = {
+    drinkName: $drinkName.val().trim(),
+    drinkIngred: $drinkIngred.val().trim(),
+    drinkPrep: $drinkPrep.val().trim()
+  };
+  if (!(drinkName && drinkIngred && drinkPrep)) {
+    alert(
+      "You must enter a drink name, it's ingredients with their quantity and how to prepare it!"
+    );
+    return;
+  }
+  drinksAPI.saveDrinks(drink).then(function() {
+    refreshDrinks();
+  });
+  $drinkName.val("");
+  $drinkIngred.val("");
+  $drinkPrep.val("");
+};
+
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleDrinkFormSubmit);
