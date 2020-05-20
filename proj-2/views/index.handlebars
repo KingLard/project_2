@@ -6,26 +6,30 @@
         <h2>Quarantined</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="text">Do you think you have the best meal?</label>
-            <input type="text" id="text" class="form-control" aria-describedby="text" placeholder="Enter Text">
+            <label for="text">What is the name of your drink</label>
+            <input type="text" id="drinkName" class="form-control" aria-describedby="text" placeholder="Enter Text">
           </div>
           <div class="form-group">
-            <label for="description">
               <ul>
                 <li>With Quarantined, users can create an account that saves your favorite meals and posts them to our database for others to see!</li>
                 <li>Read, comment and vote on other peoples favorite meals!</li>
                 <li>The top voted meals will be posted on the front-page for all to see!</li>
-              </ul></label>
-            <textarea class="form-control" id="description" aria-describedby="description" placeholder="Enter Description"></textarea>
+              </ul>
+            <label for="drinkPrep">
+              <textarea class="form-control" id="drinkPrep" aria-describedby="instructions" placeholder="Enter instructions"></textarea>
+            </label>
+            <label for="drinkIngred">
+              <textarea class="form-control" id="drinkIngred" aria-describedby="ingredients" placeholder="Enter ingredients"></textarea>
+            </label>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
+        <h3>Drinks:</h3>
+        <ul id="drinks-list" class="list-group">
+          {{#each drinks}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <a href="drink/{{this.id}}">{{this.Name}}</a>
+            <button class="btn btn-danger float-right edit">ｘ</button>
           </li>
           {{/each}}
         </ul>

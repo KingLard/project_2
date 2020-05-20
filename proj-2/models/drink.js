@@ -1,11 +1,29 @@
 module.exports = function(sequelize, DataTypes) {
   var Drinks = sequelize.define("Drinks", {
-    Name: DataTypes.STRING,
-    Category: DataTypes.STRING,
-    Alcholic: DataTypes.BOOLEAN,
-    Instructions: DataTypes.TEXT,
-    Ingredients: DataTypes.STRING,
-    Measurements: DataTypes.STRING
+    Name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    Category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    Alcholic: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    Instructions: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    Ingredients: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    Measurements: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   });
   return Drinks;
 };
