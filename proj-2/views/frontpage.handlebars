@@ -21,7 +21,7 @@
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="text">Do you think you have the best meal?</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <input type="text" id="drinkName" class="form-control" aria-describedby="drinkName" placeholder="Enter Drink Name">
           </div>
           <div class="form-group">
             <label for="description">
@@ -30,8 +30,38 @@
                 <li>Read, comment and vote on other peoples favorite meals!</li>
                 <li>The top voted meals will be posted on the front-page for all to see!</li>
               </ul></label>
-            <textarea class="form-control" id="description" aria-describedby="description" placeholder="Enter Description"></textarea>
+            <textarea class="form-control" id="Instructions" aria-describedby="description" placeholder="Enter Instructions"></textarea>
           </div>
+        <div class="row">
+        <div class="col-lg-6 pt-4">
+            <h3><strong>Category</strong></h3>
+            <h4>Select drink category</h4>
+            <select class="chosen-select" id="drinkCategory">
+              <option value=""></option>
+              <option value="Ordinary Drink">Ordinary Drink</option>
+              <option value="Cocktail">Cocktail</option>
+              <option value="Milk / Float / Shake">Milk / Float / Shake</option>
+              <option value="Other/Unknown">Other/Unknown</option>
+              <option value="Cocoa">Cocoa</option>
+              <option value="Shot">Shot</option>
+              <option value="Coffee / Tea">Coffee / Tea</option>
+              <option value="Homemade Liqueur">Homemade Liqueur</option>
+              <option value="Punch / Party Drink">Punch / Party Drink</option>
+              <option value="Beer">Beer</option>
+              <option value="Soft Drink / Soda">Soft Drink / Soda</option>
+            </select>
+        </div>
+        <div class="row">
+        <div class="col-lg-6 pt-4">
+            <h3><strong>Alcoholic</strong></h3>
+            <h4>Select if drink is Alcoholic</h4>
+            <select class="chosen-select" id="drinkAlcoholic">
+              <option value=""></option>
+              <option value="Alcoholic">Alcoholic</option>
+              <option value="Non alcoholic">Non alcoholic</option>
+              <option value="Optional alcohol">Optional alcohol</option>
+            </select>
+        </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
         <h3>Examples:</h3>

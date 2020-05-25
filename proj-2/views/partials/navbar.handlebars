@@ -11,12 +11,20 @@
     <a class="nav-link scroll-link" href="../views/submissions">Submissions</a>
 </li>
 <div class="radio">
-    <label><input type="radio" name="optradio" id="food">Food</label>
+    <label><input type="radio" name="optradio" value="food" id="food">Food</label>
 </div>
 <div class="radio">
-    <label><input type="radio" name="optradio" id="drink">Drink</label>
+    <label><input type="radio" name="optradio" value="drink" id="drink">Drink</label>
+</div>
+<div>
+    <div class="radio">
+        <label><input type="radio" name="byWhat" value="isName" id="isName">By Name</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="byWhat" value="isIngredient" id="isIngredient">By Ingredient</label>
+    </div>
 </div>
 <form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" id= "search" type="submit">Search</button>
 </form>
